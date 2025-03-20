@@ -1,1 +1,1 @@
-# Excersise-DSA
+# Exercise-DSA
