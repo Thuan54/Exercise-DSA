@@ -2,29 +2,26 @@
 using namespace std;
 
 // Generate all binary strings of length n
-void generateBinaryString(int n, string& s){
+void generateBinaryString(string& s,int i){
     // If the length of the string is n, print it
-    if(s.size() == n){
+    if(i == s.size()){
         cout << s << endl;
         return;
     }
-    // Append '0' to the string
-    s.push_back('0');
+    // Choose '0' to the string
+    s[i] = '0';
     // Generate all binary strings of length n-1
-    generateBinaryString(n, s);
-    // Remove the '0' just added
-    s.pop_back();
-    // Append '1' to the string
-    s.push_back('1');
+    generateBinaryString(s,i+1);
+    // Choose '1' to the string
+    s[i] = '1';
     // Generate all binary strings of length n-1
-    generateBinaryString(n, s);
-    // Remove the '1' just added
-    s.pop_back();
+    generateBinaryString(s,i+1);
 }
 int main(){
     int n;
     cin >> n;
-    string s;
-    generateBinaryString(n, s);
+    
+    string s(n,'0');
+    generateBinaryString(s,0);
     return 0;   
 }
